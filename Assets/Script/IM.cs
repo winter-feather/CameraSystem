@@ -7,7 +7,6 @@ public class IM : MonoBehaviour
     float doubleClickTime;
     public float doubleClickCD;
     public Vector3 om, md;
-    public TC tc;
     //public GameObject so;
     public Action<IM> onDoubleClick, onPressing, onMouseDown, onMouseUp;
     public int ya;
@@ -15,8 +14,6 @@ public class IM : MonoBehaviour
     void Start()
     {
         om = Input.mousePosition;
-        tc.a = Quaternion.identity;
-        tc.b = Quaternion.identity;
         onDoubleClick += (e) =>
         {
             //if (so!=null)
@@ -54,12 +51,7 @@ public class IM : MonoBehaviour
         //        so = null;
         //    }
         //}
-        if (Input.GetMouseButton(0))
-        {
-            tc.RH(-md.x);
-            tc.RV(ya * md.y);
-        }
-        tc.RZ(Input.mouseScrollDelta.y);
+      
     }
 
     void DoubleCheck()
